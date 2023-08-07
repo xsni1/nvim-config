@@ -10,12 +10,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("n", "<leader>vwm", function()
-    require("vim-with-me").StartVimWithMe()
-end)
-vim.keymap.set("n", "<leader>svwm", function()
-    require("vim-with-me").StopVimWithMe()
-end)
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", "\"_dP")
@@ -37,8 +31,8 @@ vim.keymap.set("n", "<leader>f", function()
     vim.lsp.buf.format()
 end)
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "[q", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "]q", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
@@ -50,3 +44,48 @@ vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-l>h")
 vim.keymap.set("n", "<C-j>", "<C-j>h")
 vim.keymap.set("n", "<C-k>", "<C-k>h")
+
+-- trouble
+vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle<cr>",
+    { silent = true, noremap = true }
+)
+
+-- nvim tree
+-- vim.keymap.set("n", "<C-f>", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<C-f>", ":Neotree filesystem reveal right toggle<CR>")
+
+
+-- vim.opt.guifont = { "JetBrains Mono:h11" }
+
+-- buffers
+-- vim.keymap.set("n", "<C-9>", ":bprev<CR>", { nowait = true })
+-- vim.keymap.set("n", "<C-0>", ":bnext<CR>", { nowait = true })
+
+-- lazygit toggleterm
+-- vim.keymap.set("n", "<leader>vc", ":TermExec cmd='lazygit' direction='float'<cr>")
+-- vim.keymap.set("n", "<leader>`", ":ToggleTerm direction='float'<cr>")
+-- vim.keymap.set("t", "<leader>`", "<C-\\><C-n>", { noremap = true, silent = true })
+
+-- scroll up/down
+-- vim.keymap.set("n", "<C-;>", "<C-e>")
+-- vim.keymap.set("n", "<C-'>", "<C-y>")
+
+-- vim.keymap.set("n", "<cr>", "ciw")
+vim.keymap.set("v", "y", "ygv<esc>")
+-- tab next/prev
+vim.keymap.set("n", "tk", ":tabnext<CR>")
+vim.keymap.set("n", "tj", ":tabprev<CR>")
+vim.keymap.set("n", "tn", ":tabnew<CR>")
+vim.keymap.set("n", "td", ":tabclose<CR>")
+
+-- Yank into system clipboard
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y') -- yank motion
+vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Y') -- yank line
+
+-- Delete into system clipboard
+vim.keymap.set({'n', 'v'}, '<leader>d', '"+d') -- delete motion
+vim.keymap.set({'n', 'v'}, '<leader>D', '"+D') -- delete line
+
+-- Paste from system clipboard
+vim.keymap.set('n', '<leader>p', '"+p')  -- paste after cursor
+vim.keymap.set('n', '<leader>P', '"+P')  -- paste before cursor

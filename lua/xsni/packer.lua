@@ -12,6 +12,7 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use { "ellisonleao/gruvbox.nvim" }
+    -- use 'morhetz/gruvbox'
     use({
         'rose-pine/neovim',
         as = 'rose-pine',
@@ -24,6 +25,8 @@ return require('packer').startup(function(use)
     use('ThePrimeagen/harpoon')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
+
+    use('tpope/vim-sleuth')
 
     -- LSP ZERO
     use {
@@ -60,4 +63,75 @@ return require('packer').startup(function(use)
     use("petertriho/nvim-scrollbar")
 
     use 'ThePrimeagen/vim-be-good'
+
+    use {
+        "ray-x/lsp_signature.nvim",
+    }
+
+    use 'nvim-lualine/lualine.nvim'
+
+    --use 'vim-airline/vim-airline'
+    --use 'vim-airline/vim-airline-themes'
+    use({
+        "folke/trouble.nvim",
+        config = function()
+            require("trouble").setup {
+                icons = false,
+                use_diagnostic_signs = true,
+                mode = "workspace_diagnotics",
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    })
+
+    vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        }
+    }
+
+    -- use 'nvim-tree/nvim-tree.lua'
+    use 'tpope/vim-commentary'
+    -- Packer
+    use { 'sindrets/diffview.nvim' }
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+        ft = { "markdown" },
+    })
+    -- use 'karb94/neoscroll.nvim'
+    use 'christoomey/vim-tmux-navigator'
+
+    use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+    end }
+
+    use {
+        'lewis6991/gitsigns.nvim',
+        -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+    }
+
+    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+
+    use "rebelot/kanagawa.nvim"
+    use 'AlexvZyl/nordic.nvim'
+    use "savq/melange-nvim"
+    use { "catppuccin/nvim", as = "catppuccin" }
+    use "EdenEast/nightfox.nvim" -- Packer
+    use 'ayu-theme/ayu-vim'
+
+    use 'nvim-treesitter/nvim-treesitter-context'
+
+    use 'tpope/vim-surround'
+
+    use 'RRethy/vim-illuminate'
 end)

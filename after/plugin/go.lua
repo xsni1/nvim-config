@@ -16,4 +16,4 @@ vim.g.go_highlight_fields = 1
 vim.g.go_higlight_functions = 1
 vim.g.go_highlight_operators = 1
 vim.keymap.set("n", "<leader>l", ":GoFmt<CR>")
-print(vim.g.mapleader, " a", " ", vim.g.go_fmt_command)
+
